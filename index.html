@@ -1,66 +1,58 @@
-"use client";
-import { useState } from "react";
-
-export default function Page() {
-  const [noCount, setNoCount] = useState(0);
-  const [yesPressed, setYesPressed] = useState(false);
-  const yesButtonSize = noCount * 20 + 16;
-
-  const handleNoClick = () => {
-    setNoCount(noCount + 1);
-  };
-
-  const getNoButtonText = () => {
-    const phrases = [
-      "No",
-      "Are you sure?",
-      "Really sure?",
-      "Think again!",
-      "Last chance!",
-      "Surely not?",
-      "You might regret this!",
-      "Give it another thought!",
-      "Are you absolutely certain?",
-      "This could be a mistake!",
-      "Have a heart!",
-      "Don't be so cold!",
-      "Change of heart?",
-      "Wouldn't you reconsider?",
-      "Is that your final answer?",
-      "You're breaking my heart ;(",
-    ];
-
-    return phrases[Math.min(noCount, phrases.length - 1)];
-  };
-
-  return (
-    <div className="flex flex-col items-center justify-center h-screen -mt-16">
-      {yesPressed ? (
-        <>
-        <img src="https://media.tenor.com/gUiu1zyxfzYAAAAi/bear-kiss-bear-kisses.gif" />
-        <div className="text-4xl font-bold my-4">Ok yay!!!</div>
-        </>
-      ) : (
-        <>
-          <img className="h-[200px]" src="https://gifdb.com/images/high/cute-love-bear-roses-ou7zho5oosxnpo6k.gif" />
-          <h1 className="text-4xl my-4">Will you be my Valentine?</h1>
-          <div>
-            <button
-              className={`bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-4`}
-              style={{ fontSize: yesButtonSize }}
-              onClick={() => setYesPressed(true)}
-            >
-              Yes
-            </button>
-            <button
-              onClick={handleNoClick}
-              className=" bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
-            >
-              {noCount === 0 ? "No" : getNoButtonText()}
-            </button>
-          </div>
-        </>
-      )}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #e91e63;
+        }
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #333;
+        }
+        button {
+            background-color: #e91e63;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin: 10px;
+        }
+        button:hover {
+            background-color: #c2185b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Will You Be My Valentine?</h1>
+        <p>Dear [Their Name],</p>
+        <p>On this special day, I want to ask you something important: Will you be my Valentine?</p>
+        <p>With love,</p>
+        <p>[Your Name]</p>
+        <button onclick="window.location.href='mailto:their.email@example.com?subject=Will%20You%20Be%20My%20Valentine%3F&body=Dear%20%5BTheir%20Name%5D%2C%0D%0A%0D%0AOn%20this%20special%20day%2C%20I%20want%20to%20ask%20you%20something%20important%3A%20Will%20you%20be%20my%20Valentine%3F%0D%0A%0D%0AWith%20love%2C%0D%0A%5BYour%20Name%5D'">Yes, I will!</button>
+        <button onclick="window.location.href='mailto:their.email@example.com?subject=Response%20to%20Valentine%20Request&body=Dear%20%5BTheir%20Name%5D%2C%0D%0A%0D%0AI%20understand.%20Maybe%20another%20time.%20Take%20care.%0D%0A%0D%0AWith%20respect%2C%0D%0A%5BYour%20Name%5D'">Sorry, not this time.</button>
     </div>
-  );
-}
+</body>
+</html>
